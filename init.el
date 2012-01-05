@@ -25,6 +25,7 @@
 (load-cfg-files '("cfg_general"
 		  "cfg_python"
 		  "cfg_ido"
+		  "cfg_org"
                    ))
 
 (el-get 'sync)
