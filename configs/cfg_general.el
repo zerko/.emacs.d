@@ -1,5 +1,6 @@
 (setq general-packages
       '(color-theme-solarized
+	magit
 	))
 (el-get 'wait general-packages)
 
