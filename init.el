@@ -24,6 +24,7 @@
 
 (load-cfg-files '("cfg_general"
 		  "cfg_python"
+		  "cfg_clientside"
 		  "cfg_ido"
 		  "cfg_org"
                    ))

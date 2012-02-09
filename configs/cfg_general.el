@@ -1,6 +1,7 @@
 (setq general-packages
       '(color-theme-solarized
 	magit
+	yaml-mode
 	))
 (el-get 'wait general-packages)
 
@@ -18,3 +19,6 @@
 
 
 (color-theme-solarized-dark)
+
+
+(global-set-key "\M-t" 'imenu)
