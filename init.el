@@ -1,33 +1,25 @@
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(tool-bar-mode nil)
+(scroll-bar-mode nil)
 
-(defconst emacs-config-dir "~/.emacs.d/configs/")
+(require 'whitespace)
 
-(unless (require 'el-get nil t)
-  (url-retrieve
-   "https://raw.github.com/dimitri/el-get/master/el-get-install.el"
-   (lambda (s)
-     (end-of-buffer)
-     (eval-print-last-sexp))))
+;; whitespace-mode
+;; free of trailing whitespace and to use 80-column width, standard indentation
+(setq whitespace-style '(face trailing tabs lines-tail empty space-before-tab
+indentation space-after-tab)
+      whitespace-line-column 80)
 
-(setq
- el-get-sources
- '(el-get))
+(setq ido-enable-flex-matching +1)
 
-(defun load-cfg-files (filelist)
-  (dolist (file filelist)
-    (let ((filename (expand-file-name (concat emacs-config-dir file ".el"))))
-      (if (file-exists-p filename)
-          (progn
-            (load (concat filename))
-            (message "Loaded config file: %s" filename))
-       (message "Could not load file: %s" filename)))))
+(setq ido-everywhere +1)
 
-(load-cfg-files '("cfg_general"
-		  "cfg_python"
-		  "cfg_clientside"
-		  "cfg_ido"
-		  "cfg_org"
-                   ))
+(setq ido-create-new-buffer 'always)
 
-(el-get 'sync)
+(ido-mode +1)
+
+(setq org-M-RET-may-split-line nil)
+(setq org-special-ctrl-a/e +1)
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cb" 'org-iswitchb)
 
