@@ -23,3 +23,10 @@ indentation space-after-tab)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 
+;; php
+(add-to-list 'load-path "~/.emacs.d/vendor/php-mode")
+(require 'php-mode)
+
+;; coffee
+(add-to-list 'load-path "~/.emacs.d/vendor/coffee-mode")
+(require 'coffee-mode)
