@@ -4,3 +4,12 @@
 [submodule "vendor/coffee-mode"]
 	path = vendor/coffee-mode
 	url = https://github.com/defunkt/coffee-mode.git
+[submodule "vendor/solarized"]
+	path = vendor/solarized
+	url = https://github.com/sellout/emacs-color-theme-solarized.git
+[submodule "vendor/yasnippet"]
+	path = vendor/yasnippet
+	url = https://github.com/capitaomorte/yasnippet.git
+[submodule "vendor/snippets/php-mode"]
+	path = vendor/snippets/php-mode
+	url = https://github.com/nishimura/minimal-yasnippet-php-mode.git
