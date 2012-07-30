@@ -50,3 +50,7 @@ indentation space-after-tab newline newline-mark space-mark tab-mark)
 ;; solarized
 (add-to-list 'custom-theme-load-path "~/.emacs.d/vendor/solarized")
 (load-theme 'solarized-dark t)
+
+;; magit
+(add-to-list 'load-path "~/.emacs.d/vendor/magit")
+(require 'magit)
