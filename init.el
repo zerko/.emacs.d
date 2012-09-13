@@ -9,6 +9,11 @@
 indentation space-after-tab newline newline-mark space-mark tab-mark)
       whitespace-line-column 80)
 
+(require 'uniquify)
+(setq 
+  uniquify-buffer-name-style 'forward)
+
+
 (setq ido-enable-flex-matching +1)
 (setq ido-everywhere +1)
 (setq ido-create-new-buffer 'always)
@@ -34,6 +39,10 @@ indentation space-after-tab newline newline-mark space-mark tab-mark)
 ;; coffee
 (add-to-list 'load-path "~/.emacs.d/vendor/coffee-mode")
 (require 'coffee-mode)
+(add-hook 'coffee-mode-hook
+          '(lambda ()
+             ((set-variable tab-width 2))))
+
 
 ;; yas
 (add-to-list 'load-path "~/.emacs.d/vendor/yasnippet")
@@ -54,3 +63,16 @@ indentation space-after-tab newline newline-mark space-mark tab-mark)
 ;; magit
 (add-to-list 'load-path "~/.emacs.d/vendor/magit")
 (require 'magit)
+
+
+;; fullscreen
+(defun toggle-fullscreen (&optional f)
+  (interactive)
+  (let ((current-value (frame-parameter nil 'fullscreen)))
+    (set-frame-parameter nil 'fullscreen
+			 (if (equal 'fullboth current-value)
+			     (if (boundp 'old-fullscreen) old-fullscreen nil)
+			   (progn (setq old-fullscreen current-value)
+				  'fullboth)))))
+
+(global-set-key [f11] 'toggle-fullscreen)
