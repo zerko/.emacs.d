@@ -16,3 +16,9 @@
 [submodule "vendor/magit"]
 	path = vendor/magit
 	url = https://github.com/magit/magit.git
+[submodule "vendor/acejump"]
+	path = vendor/acejump
+	url = git://github.com/winterTTr/ace-jump-mode.git
+[submodule "vendor/js2"]
+	path = vendor/js2
+	url = git://github.com/mooz/js2-mode.git

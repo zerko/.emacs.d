@@ -20,6 +20,12 @@ indentation space-after-tab newline newline-mark space-mark tab-mark)
 
 (ido-mode +1)
 
+;;
+(global-set-key (kbd "C-<tab>") 'dabbrev-expand)
+(define-key minibuffer-local-map (kbd "C-<tab>") 'dabbrev-expand)
+
+
+;; org
 (setq org-M-RET-may-split-line nil)
 (setq org-special-ctrl-a/e +1)
 (global-set-key "\C-cl" 'org-store-link)
@@ -39,9 +45,16 @@ indentation space-after-tab newline newline-mark space-mark tab-mark)
 ;; coffee
 (add-to-list 'load-path "~/.emacs.d/vendor/coffee-mode")
 (require 'coffee-mode)
-(add-hook 'coffee-mode-hook
-          '(lambda ()
-             ((set-variable tab-width 2))))
+(setq coffee-tab-width 2)
+;(add-hook 'coffee-mode-hook
+;          '(lambda ()
+;             (set (make-local-variable 'tab-width) 2)))
+
+
+;; js2
+(add-to-list 'load-path "~/.emacs.d/vendor/js2")
+(require 'js2-mode)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 
 ;; yas
@@ -63,6 +76,16 @@ indentation space-after-tab newline newline-mark space-mark tab-mark)
 ;; magit
 (add-to-list 'load-path "~/.emacs.d/vendor/magit")
 (require 'magit)
+
+;; ace-jump-mode
+(add-to-list 'load-path "~/.emacs.d/vendor/acejump")
+(autoload
+  'ace-jump-mode
+  "ace-jump-mode"
+  "Emacs quick move minor mode"
+  t)
+;; you can select the key you prefer to
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
 
 ;; fullscreen
