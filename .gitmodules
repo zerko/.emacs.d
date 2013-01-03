@@ -22,3 +22,21 @@
 [submodule "vendor/js2"]
 	path = vendor/js2
 	url = git://github.com/mooz/js2-mode.git
+[submodule "vendor/webmode"]
+	path = vendor/webmode
+	url = git://github.com/fxbois/web-mode.git
+[submodule "vendor/solarized-alt"]
+	path = vendor/solarized-alt
+	url = git://github.com/bbatsov/solarized-emacs.git
+[submodule "vendor/pretty-symbols"]
+	path = vendor/pretty-symbols
+	url = git://github.com/drothlis/pretty-symbols.git
+[submodule "vendor/clojure-mode"]
+	path = vendor/clojure-mode
+	url = https://github.com/technomancy/clojure-mode.git
+[submodule "vendor/nrepl"]
+	path = vendor/nrepl
+	url = https://github.com/kingtim/nrepl.el.git
+[submodule "vendor/rainbow-delimiters"]
+	path = vendor/rainbow-delimiters
+	url = https://github.com/jlr/rainbow-delimiters.git

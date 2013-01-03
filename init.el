@@ -1,5 +1,6 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+(menu-bar-mode -1)
 
 (require 'whitespace)
 
@@ -42,6 +43,16 @@ indentation space-after-tab newline newline-mark space-mark tab-mark)
 	     (setq indent-tabs-mode nil)
 	     (whitespace-mode +1)))
 
+(add-to-list 'load-path "~/.emacs.d/vendor/webmode")
+(require 'web-mode)
+(defun web-mode-hook ()
+  "Hooks for Web mode."
+  (setq web-mode-markup-indent-offset 2)
+)
+(add-hook 'web-mode-hook  'web-mode-hook)
+(add-to-list 'auto-mode-alist '("/\\(views\\|templates\\)/.*\\.php\\'" . web-mode))
+
+
 ;; coffee
 (add-to-list 'load-path "~/.emacs.d/vendor/coffee-mode")
 (require 'coffee-mode)
@@ -70,8 +81,13 @@ indentation space-after-tab newline newline-mark space-mark tab-mark)
              (yas/minor-mode)))
 
 ;; solarized
-(add-to-list 'custom-theme-load-path "~/.emacs.d/vendor/solarized")
+;;(add-to-list 'custom-theme-load-path "~/.emacs.d/vendor/solarized")
+;;(load-theme 'solarized-dark t)
+(add-to-list 'load-path "~/.emacs.d/vendor/solarized-alt")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/vendor/solarized-alt")
 (load-theme 'solarized-dark t)
+
+
 
 ;; magit
 (add-to-list 'load-path "~/.emacs.d/vendor/magit")
@@ -99,3 +115,36 @@ indentation space-after-tab newline newline-mark space-mark tab-mark)
 				  'fullboth)))))
 
 (global-set-key [f11] 'toggle-fullscreen)
+
+(add-to-list 'load-path "/usr/lib/erlang/lib/tools-2.6.8/emacs")
+(setq erlang-root-dir "/usr/lib/erlang")
+(setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
+(require 'erlang-start)
+
+(add-to-list 'load-path "~/.emacs.d/vendor/clojure-mode")
+(require 'clojure-mode)
+
+(add-to-list 'load-path "~/.emacs.d/vendor/rainbow-delimiters")
+(require 'rainbow-delimiters)
+
+
+(add-to-list 'load-path "~/.emacs.d/vendor")
+(require 'paredit)
+
+(defun turn-on-paredit () (paredit-mode 1))
+(add-hook 'clojure-mode-hook 'turn-on-paredit)
+
+(add-to-list 'load-path "~/.emacs.d/vendor/nrepl")
+(require 'nrepl)
+(add-hook 'nrepl-mode-hook 'paredit-mode)
+(add-hook 'nrepl-mode-hook 'rainbow-delimiters-mode)
+
+
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(c-default-style (quote ((java-mode . "java") (awk-mode . "awk") (other . "bsd"))))
+ '(js2-highlight-level 3))
