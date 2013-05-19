@@ -83,9 +83,11 @@ indentation space-after-tab newline newline-mark space-mark tab-mark)
 ;; solarized
 ;;(add-to-list 'custom-theme-load-path "~/.emacs.d/vendor/solarized")
 ;;(load-theme 'solarized-dark t)
-(add-to-list 'load-path "~/.emacs.d/vendor/solarized-alt")
+;;(add-to-list 'load-path "~/.emacs.d/vendor/solarized-alt")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/vendor/solarized-alt")
-(load-theme 'solarized-dark t)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/vendor/zenburn")
+
+(load-theme 'zenburn t)
 
 
 
@@ -104,6 +106,15 @@ indentation space-after-tab newline newline-mark space-mark tab-mark)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
 
+(add-to-list 'load-path "~/.emacs.d/vendor/helm")
+(require 'helm-config)
+
+(define-key global-map (kbd "M-i") 'helm-imenu)
+
+(add-to-list 'load-path "~/.emacs.d/vendor/pretty-symbols")
+(require 'pretty-symbols)
+
+
 ;; fullscreen
 (defun toggle-fullscreen (&optional f)
   (interactive)
@@ -116,13 +127,10 @@ indentation space-after-tab newline newline-mark space-mark tab-mark)
 
 (global-set-key [f11] 'toggle-fullscreen)
 
-(add-to-list 'load-path "/usr/lib/erlang/lib/tools-2.6.8/emacs")
-(setq erlang-root-dir "/usr/lib/erlang")
-(setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
-(require 'erlang-start)
-
-(add-to-list 'load-path "~/.emacs.d/vendor/clojure-mode")
-(require 'clojure-mode)
+;(add-to-list 'load-path "/usr/lib/erlang/lib/tools-2.6.8/emacs")
+;(setq erlang-root-dir "/usr/lib/erlang")
+;(setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
+;(require 'erlang-start)
 
 (add-to-list 'load-path "~/.emacs.d/vendor/rainbow-delimiters")
 (require 'rainbow-delimiters)
@@ -131,15 +139,24 @@ indentation space-after-tab newline newline-mark space-mark tab-mark)
 (add-to-list 'load-path "~/.emacs.d/vendor")
 (require 'paredit)
 
-(defun turn-on-paredit () (paredit-mode 1))
-(add-hook 'clojure-mode-hook 'turn-on-paredit)
+(add-to-list 'load-path "~/.emacs.d/vendor/clojure-mode")
+(require 'clojure-mode)
+
+(add-hook 'clojure-mode-hook 'paredit-mode)
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 
 (add-to-list 'load-path "~/.emacs.d/vendor/nrepl")
 (require 'nrepl)
+
 (add-hook 'nrepl-mode-hook 'paredit-mode)
 (add-hook 'nrepl-mode-hook 'rainbow-delimiters-mode)
 
 
+(add-to-list 'load-path "~/.emacs.d/vendor/s")
+(add-to-list 'load-path "~/.emacs.d/vendor/dash")
+(add-to-list 'load-path "~/.emacs.d/vendor/projectile")
+(require 'projectile)
+(projectile-global-mode)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
