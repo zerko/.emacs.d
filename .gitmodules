@@ -55,3 +55,9 @@
 [submodule "vendor/zenburn"]
 	path = vendor/zenburn
 	url = git://github.com/bbatsov/zenburn-emacs.git
+[submodule "vendor/npm.el"]
+	path = vendor/npm.el
+	url = git://github.com/azer/npm.el.git
+[submodule "vendor/auto-complete"]
+	path = vendor/auto-complete
+	url = git://github.com/auto-complete/auto-complete.git

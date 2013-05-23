@@ -38,7 +38,7 @@ indentation space-after-tab newline newline-mark space-mark tab-mark)
 (require 'php-mode)
 (setq c-basic-offset 4)
 (setq c-block-comment-prefix "*")
-(add-hook 'php-mode-hook
+(add-hook 'prog-mode-hook
 	  '(lambda ()
 	     (setq indent-tabs-mode nil)
 	     (whitespace-mode +1)))
@@ -66,6 +66,11 @@ indentation space-after-tab newline newline-mark space-mark tab-mark)
 (add-to-list 'load-path "~/.emacs.d/vendor/js2")
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
+;; npm
+(add-to-list 'load-path "~/.emacs.d/vendor/npm.el")
+(require 'npm)
+
 
 
 ;; yas
